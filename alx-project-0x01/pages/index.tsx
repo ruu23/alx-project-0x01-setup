@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import UserCard from "@/components/common/UserCard";
 
 const Home: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
             Get Started
           </button>
             </div>
+        <h1 className="text-2xl font-semibold mb-4">Users</h1>
       </main>
     </div>
   )
