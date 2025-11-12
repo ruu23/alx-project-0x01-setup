@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../components/common/Button";
 
-const UsersPage: React.FC = () => {
+const Users: React.FC = () => {
   const handleClick = () => {
     alert("User button clicked!");
   };
@@ -14,4 +14,16 @@ const UsersPage: React.FC = () => {
   );
 };
 
-export default UsersPage;
+export async function getStaticProps() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users")
+  const posts = await response.json()
+
+  return {
+    props: {
+      posts
+    }
+  }
+}
+
+
+export default Users;
