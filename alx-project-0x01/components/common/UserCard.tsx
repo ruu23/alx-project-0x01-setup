@@ -1,17 +1,19 @@
-import { Users } from "@/interfaces"
+import { UserProps } from "@/interfaces"
 import User_img from '@/public/user.jpeg'
 import Image from 'next/image'
 
-const UserCard: React.FC<Users> = ({ name, address, phone, website, company, email }) => {
+const UserCard: React.FC<UserProps> = ({ name, address, phone, website, company, email }) => {
     return(
-        <div className="max-w-md mx-auto my-4 p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-            <Image src={User_img} alt="" />
-            <h1 className="text-xl font-semibold mb-2">{name}</h1>
-            <p className="text-gray-600 mb-1">{address.city}</p>
-            <p className="text-gray-600 mb-1">{phone}</p>
-            <p className="text-gray-600 mb-1">{website}</p>
-            <p className="text-gray-600 mb-1">{company.name}</p>
-            <p className="text-gray-600 mb-1">{email}</p>
+        <div className="border border-2 p-[10px]">
+            <Image src={User_img} alt="" className="h-[100px] w-[100px]"/>
+            <h2 className="">{name}</h2>
+            <div className="grid grid-cols-2">
+                <p className=""><b>Address: </b> {address.city}</p>
+                <p className=""><b>Phone number: </b>{phone}</p>
+                <p className=""><b>Website: </b>{website}</p>
+                <p className=""><b>Company: </b>{company.name}</p>
+                <p className=""><b>Email: </b>{email}</p>
+            </div>
         </div>
     )
 }

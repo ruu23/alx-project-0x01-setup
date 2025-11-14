@@ -1,15 +1,20 @@
 import React from "react";
-import Button from "../../components/common/Button";
+import UserCard from "@/components/common/UserCard";
+import { UserProps } from "@/interfaces";
 
-const Users: React.FC = () => {
-  const handleClick = () => {
-    alert("User button clicked!");
-  };
+interface UsersPageProps {
+  posts: UserProps[];
+}
 
+const Users: React.FC<UsersPageProps> = ({ posts }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-4">
-      <h1 className="text-4xl font-light">Users Page</h1>
-      <Button title="Click Me" onClick={handleClick} />
+    <div className="">
+      <h1 className="text-center">Users Page</h1>
+      <div className="grid grid-cols-2 gap-[70px]">
+        {posts.map((user) => (
+          <UserCard key={user.id} {...user} />
+        ))}
+      </div>
     </div>
   );
 };
@@ -20,8 +25,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts
-    }
+      posts,
+    },
   }
 }
 
