@@ -6,26 +6,26 @@ export interface PostProps {
 }
 
 export interface UserProps {
-    id:       number;
-    name:     string;
+    id: number;
+    name: string;
     username: string;
-    email:    string;
+    email: string;
     address: {
-      street:  string;
-      suite:   string;
-      city:    string;
+      street: string;
+      suite: string;
+      city: string;
       zipcode: string;
       geo: {
         lat: string;
         ng: string;
       }
     }
-    phone:    string;
-    website:  string;
+    phone: string;
+    website: string;
     company:  {
-      name:        string;
+      name: string;
       catchPhrase: string;
-      bs:          string;
+      bs: string;
     }
 }
 
