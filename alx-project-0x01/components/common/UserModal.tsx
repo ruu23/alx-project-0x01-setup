@@ -71,10 +71,14 @@ const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(user);
-    onClose();
-  };
+  e.preventDefault();
+
+  // Assign a temporary id, for example using timestamp
+  const userWithId = { ...user, id: Date.now() };
+
+  onSubmit(userWithId);
+  onClose();
+};
 
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50 overflow-y-auto">
